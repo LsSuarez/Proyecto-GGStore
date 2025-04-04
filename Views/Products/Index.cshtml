@@ -1,0 +1,86 @@
+@model IEnumerable<GGStoreProyecto.Models.Product>
+@{
+    ViewData["Title"] = "Catálogo de Productos";
+}
+
+<h2 class="text-neon text-center mb-4">🛍️ Catálogo Gamer</h2>
+
+<!-- Buscador (opcional si quieres filtrar productos por nombre) -->
+<form asp-action="Index" method="get" class="mb-4 container">
+    <div class="input-group">
+        <input type="text" name="search" class="form-control" placeholder="Buscar producto..." />
+        <button type="submit" class="btn btn-outline-info">Buscar</button>
+    </div>
+</form>
+
+<!-- Lista de productos -->
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var product in Model)
+        {
+            <div class="col">
+                <div class="card h-100 bg-dark text-light border-neon shadow-lg">
+                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" />
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">@product.Description</p>
+                        <p class="price text-success fw-bold">S/ @product.Price</p>
+                        <a href="@Url.Action("Details", "Products", new { id = product.Id })" class="btn btn-outline-info w-100">Ver Detalles</a>
+                        <button class="btn btn-success w-100 mt-2 add-to-cart" data-id="@product.Id">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Productos destacados -->
+<section class="my-5 container">
+    <h3 class="text-neon text-center mb-4">✨ Productos Destacados</h3>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Producto 1: Mouse -->
+            <div class="swiper-slide">
+                <div class="card bg-dark text-light h-100">
+                    <img src="~/images/1.png" class="card-img-top" alt="Mouse Gamer">
+                    <div class="card-body">
+                        <h5 class="card-title">Mouse Gamer</h5>
+                        <p class="card-text">Alta precisión, diseño ergonómico.</p>
+                        <p class="text-success fw-bold">S/ 199.90</p>
+                        <button class="btn btn-success w-100 add-to-cart">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 2: Teclado -->
+            <div class="swiper-slide">
+                <div class="card bg-dark text-light h-100">
+                    <img src="~/images/2.png" class="card-img-top" alt="Teclado RGB">
+                    <div class="card-body">
+                        <h5 class="card-title">Teclado RGB</h5>
+                        <p class="card-text">Full anti-ghosting, switches azules.</p>
+                        <p class="text-success fw-bold">S/ 599.90</p>
+                        <button class="btn btn-success w-100 add-to-cart">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: { el: '.swiper-pagination' },
+            autoplay: { delay: 3000 }
+        });
+
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert("🎯 Producto agregado al carrito (aquí va la lógica real)");
+            });
+        });
+    </script>
+}

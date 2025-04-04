@@ -1,0 +1,16 @@
+@model GGStoreProyecto.Models.Product
+@{
+    ViewData["Title"] = "Detalles del Producto";
+}
+
+<h2 class="text-info">Detalles del Producto</h2>
+
+<div class="bg-dark text-light p-4 rounded shadow">
+    <p><strong>Nombre:</strong> @Model.Name</p>
+    <p><strong>Precio:</strong> $@Model.Price</p>
+    <p><strong>Descripción:</strong> @Model.Description</p>
+    <img src="@Model.ImageUrl" width="200" class="rounded border" />
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning mt-3">Editar</a>
+<a asp-action="Index" class="btn btn-secondary mt-3">Volver</a>
