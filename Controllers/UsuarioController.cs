@@ -44,10 +44,11 @@ namespace GGStoreProyecto.Controllers
                     {
                         // Crea los Claims
                         var claims = new List<Claim>
-                        {
-                            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                            new Claim(ClaimTypes.Name, user.UserName)
-                        };
+                    {
+                        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                        new Claim(ClaimTypes.Name, user.UserName ?? "")
+                    };
+
 
                         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                         var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
@@ -56,11 +57,13 @@ namespace GGStoreProyecto.Controllers
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
 
                         // Redirigir a la página anterior (si la existe) o a la página principal
-                        var returnUrl = HttpContext.Request.Query["ReturnUrl"];
-                        if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
-                        {
-                            return Redirect(returnUrl);
-                        }
+                    var returnUrl = HttpContext.Request.Query["ReturnUrl"].ToString();
+                    if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+
+
 
                         return RedirectToAction("Index", "Home");
                     }
