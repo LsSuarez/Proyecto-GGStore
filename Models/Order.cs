@@ -18,5 +18,9 @@ namespace GGStoreProyecto.Models
 
         [Required]
         public required virtual ICollection<OrderDetail> OrderDetails { get; set; }
-    }
+
+        // Agregar la propiedad TotalPrice
+        [Range(0, double.MaxValue, ErrorMessage = "El precio total debe ser un valor positivo.")]
+        public decimal TotalPrice { get; set; }
+    }
 }

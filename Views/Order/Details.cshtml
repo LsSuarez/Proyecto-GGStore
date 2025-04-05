@@ -1,0 +1,40 @@
+deatils.cshtml
+@model GGStoreProyecto.Models.Order
+
+@{
+    ViewData["Title"] = "Detalles de la Orden";
+}
+
+<h2>Detalles de la Orden</h2>
+
+<div>
+    <h4>Orden ID: @Model.Id</h4>
+    <p>Fecha de la orden: @Model.OrderDate</p>
+    <p>Total de la orden: S/ @Model.TotalPrice</p>
+</div>
+
+<h3>Productos en la orden:</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderDetails)
+        {
+            <tr>
+                <td>@item.Product.Name</td>
+                <td>@item.Quantity</td>
+                <td>S/ @item.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index">Volver al inicio</a>
+</div>
