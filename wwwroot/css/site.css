@@ -1,0 +1,312 @@
+/* Tamaño base de la fuente */
+html {
+  font-size: 14px;
+  font-family: 'Orbitron', sans-serif;
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Efectos de bordes y fondo neon en botones y enlaces */
+.btn, .btn-link, .nav-link {
+  background-color: #111; /* Fondo oscuro */
+  color: #fff;
+  border: 2px solid #00ffc3;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px #00ffc3, 0 0 10px #00ffc3, 0 0 15px #00ffc3;
+}
+
+.btn:hover, .btn-link:hover, .nav-link:hover {
+  background-color: #00ffc3;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffc3, 0 0 25px #00ffc3, 0 0 35px #00ffc3;
+}
+
+/* Efectos de focus en botones y formularios */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem #258cfb, 0 0 0 0.25rem #ff00ff; /* Efecto en focus */
+}
+
+/* Fondo oscuro para todo el body */
+body {
+  background-color: #111;
+  margin-bottom: 60px;
+  color: #fff;
+}
+
+/* Diseño de formularios flotantes */
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: #00ffc3;
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+  color: #00ff00;
+}
+
+/* Efectos de sombra y foco en los inputs */
+input.form-control, select.form-control, textarea.form-control {
+  background-color: #222;
+  border: 2px solid #00ffc3;
+  color: #fff;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input.form-control:focus, select.form-control:focus, textarea.form-control:focus {
+  box-shadow: 0 0 8px #ff00ff, 0 0 12px #ff00ff;
+  border-color: #ff00ff;
+}
+
+/* Estilo de enlaces con efecto hover neon */
+a {
+  color: #00ffc3;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #ff00ff;
+  text-decoration: underline;
+  text-shadow: 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+}
+
+/* Animación de neón para títulos */
+h1, h2, h3, h4, h5, h6 {
+  color: #00ffc3;
+  text-shadow: 0 0 5px #00ffc3, 0 0 15px #00ffc3, 0 0 25px #00ffc3;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+}
+
+h1, h2 {
+  font-size: 2.5rem;
+}
+
+h3, h4 {
+  font-size: 2rem;
+}
+
+/* Estilo del contenido dentro de tarjetas de productos */
+.product-card {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 255, 195, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #00ffc3;
+}
+
+.product-card img {
+  max-height: 250px;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.product-info {
+  text-align: center;
+}
+
+.product-info h3 {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.product-info p {
+  color: #aaa;
+  font-size: 1rem;
+}
+
+.price {
+  color: #00ffc3;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.add-to-cart {
+  background-color: #00ffc3;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+  background-color: #ff00ff;
+  color: #fff;
+}
+
+.product-card.promotion {
+  border: 2px solid #ff00ff;
+  background: #333;
+}
+
+.discount {
+  color: #f00;
+  text-decoration: line-through;
+}
+
+.discount-percent {
+  color: #00ff00;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+/* Responsivo para productos */
+@media (max-width: 767px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Menor tamaño para móviles */
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  .product-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .product-info p {
+    font-size: 0.9rem;
+  }
+
+  .price {
+    font-size: 1.1rem;
+  }
+
+  .add-to-cart {
+    padding: 8px 15px;
+  }
+}
+
+/* Para tabletas y pantallas grandes */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr); /* Dos productos por fila */
+  }
+
+  .product-card {
+    padding: 20px;
+  }
+
+  .product-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .price {
+    font-size: 1.2rem;
+  }
+}
+
+/* Para pantallas grandes */
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr); /* Cuatro productos por fila */
+  }
+
+  .product-card {
+    padding: 20px;
+  }
+
+  .product-info h3 {
+    font-size: 1.8rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+}
+
+.text-neon {
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffe5;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+
+.border-neon {
+  border: 1px solid #00ffe5 !important;
+}
+
+.card .price {
+  font-size: 1.2rem;
+}
+
+.swiper-container {
+  width: 100%;
+  padding: 30px 0;
+}
+
+.swiper-slide {
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+.text-neon {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffe5;
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+
+.border-neon {
+    border: 1px solid #00ffe5 !important;
+}
+
+.card .price {
+    font-size: 1.1rem;
+}
+
+.swiper-container {
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.swiper-slide {
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.text-neon {
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffe5;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+
+.border-neon {
+  border: 1px solid #00ffe5 !important;
+}
+
+.card .price {
+  font-size: 1.1rem;
+}
+
+.swiper-container {
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.swiper-slide {
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.text-neon {
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffe5;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}

@@ -1,0 +1,31 @@
+@model GGStoreProyecto.Models.Product
+@{
+    ViewData["Title"] = "Agregar Producto";
+}
+
+<h2 class="text-neon">Agregar Producto</h2>
+
+<form asp-action="Create" method="post" class="bg-dark p-4 rounded shadow">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label text-light"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label text-light"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Price" class="form-label text-light"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ImageUrl" class="form-label text-light"></label>
+        <input asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>
