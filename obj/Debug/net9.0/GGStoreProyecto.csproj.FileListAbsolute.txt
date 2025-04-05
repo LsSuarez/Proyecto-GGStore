@@ -219,3 +219,15 @@ C:\Proyecto\GGStoreProyecto\obj\Debug\net9.0\GGStoreProyecto.pdb
 C:\Proyecto\GGStoreProyecto\obj\Debug\net9.0\GGStoreProyecto.genruntimeconfig.cache
 C:\Proyecto\GGStoreProyecto\obj\Debug\net9.0\ref\GGStoreProyecto.dll
 C:\Proyecto\GGStoreProyecto\obj\Debug\net9.0\compressed\r419ce0psx-v90i65nbon.gz
+C:\Proyecto-GGStore-master\Proyecto-GGStore-master\obj\Debug\net9.0\GGStoreProyecto.csproj.AssemblyReference.cache
+C:\Proyecto-GGStore-master\Proyecto-GGStore-master\obj\Debug\net9.0\GGStoreProyecto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyecto-GGStore-master\Proyecto-GGStore-master\obj\Debug\net9.0\GGStoreProyecto.AssemblyInfoInputs.cache
+C:\Proyecto-GGStore-master\Proyecto-GGStore-master\obj\Debug\net9.0\GGStoreProyecto.AssemblyInfo.cs
+C:\Proyecto-GGStore-master\Proyecto-GGStore-master\obj\Debug\net9.0\GGStoreProyecto.csproj.CoreCompileInputs.cache
+C:\Proyecto-GGStore-master\Proyecto-GGStore-master\obj\Debug\net9.0\GGStoreProyecto.MvcApplicationPartsAssemblyInfo.cache
+C:\Proyecto-GGStore-master\Proyecto-GGStore-master\obj\Debug\net9.0\GGStoreProyecto.RazorAssemblyInfo.cache
+C:\Proyecto-GGStore-master\Proyecto-GGStore-master\obj\Debug\net9.0\GGStoreProyecto.RazorAssemblyInfo.cs
+C:\Proyecto-GGStore-master\Proyecto-GGStore-master\obj\Debug\net9.0\GGStoreProyecto.sourcelink.json
+C:\Proyecto-GGStore-master\Proyecto-GGStore-master\obj\Debug\net9.0\GGStoreProyecto.dll
+C:\Proyecto-GGStore-master\Proyecto-GGStore-master\obj\Debug\net9.0\refint\GGStoreProyecto.dll
+C:\Proyecto-GGStore-master\Proyecto-GGStore-master\obj\Debug\net9.0\GGStoreProyecto.pdb

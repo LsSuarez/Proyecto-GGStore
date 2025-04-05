@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GGStoreProyecto")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49b61e941e0fccbf421bfe6fecb1ea75e04bf1bd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e2917ea5a64b9330d75ca642fc004c3e3135bea")]
 [assembly: System.Reflection.AssemblyProductAttribute("GGStoreProyecto")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GGStoreProyecto")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

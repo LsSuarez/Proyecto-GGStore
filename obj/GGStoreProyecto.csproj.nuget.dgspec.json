@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Proyecto\\GGStoreProyecto\\GGStoreProyecto.csproj": {}
+    "C:\\Proyecto-GGStore-master\\Proyecto-GGStore-master\\GGStoreProyecto.csproj": {}
   },
   "projects": {
-    "C:\\Proyecto\\GGStoreProyecto\\GGStoreProyecto.csproj": {
+    "C:\\Proyecto-GGStore-master\\Proyecto-GGStore-master\\GGStoreProyecto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Proyecto\\GGStoreProyecto\\GGStoreProyecto.csproj",
+        "projectUniqueName": "C:\\Proyecto-GGStore-master\\Proyecto-GGStore-master\\GGStoreProyecto.csproj",
         "projectName": "GGStoreProyecto",
-        "projectPath": "C:\\Proyecto\\GGStoreProyecto\\GGStoreProyecto.csproj",
-        "packagesPath": "C:\\Users\\LUIS SUAREZ RAMOS\\.nuget\\packages\\",
-        "outputPath": "C:\\Proyecto\\GGStoreProyecto\\obj\\",
+        "projectPath": "C:\\Proyecto-GGStore-master\\Proyecto-GGStore-master\\GGStoreProyecto.csproj",
+        "packagesPath": "C:\\Users\\GABRIEL\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyecto-GGStore-master\\Proyecto-GGStore-master\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\LUIS SUAREZ RAMOS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\GABRIEL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
