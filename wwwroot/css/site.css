@@ -1,0 +1,62 @@
+.custom-navbar {
+  background-color: #0f0f0f; /* Fondo negro gamer */
+  border-bottom: 2px solid #00ffc3; /* Cian neón */
+  box-shadow: 0 0 10px #00ffc3;
+}
+
+.navbar-brand {
+  color: #00ffc3 !important;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 5px #00ffc3;
+}
+
+.nav-link {
+  color: #00ffc3 !important;
+  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: #ff007a !important; /* Magenta neón */
+  text-shadow: 0 0 5px #ff007a;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a); /* Fondo oscuro gamer */
+  color: #f4f4f4; /* Blanco hielo */
+  font-family: 'Orbitron', sans-serif;
+  padding-top: 20px;
+}
+
+h2, h3, h4 {
+  color: #00ffc3;
+  margin-top: 20px;
+  text-shadow: 0 0 5px #00ffc3;
+}
+
+.text-neon {
+  color: #00ffc3;
+  text-shadow: 0 0 5px #00ffc3;
+}
+
+.btn-primary {
+  background-color: #ff007a;
+  border-color: #ff007a;
+  color: #ffffff;
+  text-shadow: 0 0 2px #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #ff3c3c; /* Rojo arcade */
+  border-color: #ff3c3c;
+  box-shadow: 0 0 10px #ff3c3c;
+}
+
+.badge-retro {
+  background-color: #ffe600; /* Amarillo pixel */
+  color: #000;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-shadow: none;
+}
