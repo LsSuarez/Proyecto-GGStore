@@ -1,1 +1,4 @@
-.qodo
+bin/
+obj/
+bin/**
+obj/**
