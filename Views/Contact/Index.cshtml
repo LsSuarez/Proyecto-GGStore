@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Contacto";
+}
+<h2>Contáctanos</h2>
+<form onsubmit="sendMessage(event)">
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="contactName" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" id="contactEmail" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Mensaje</label>
+        <textarea class="form-control" rows="4" id="contactMsg" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
