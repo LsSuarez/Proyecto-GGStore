@@ -1,0 +1,22 @@
+@model ProyectoGGStore.Models.Order
+
+@{
+    ViewData["Title"] = "Eliminar Pedido";
+}
+
+<h1>Eliminar Pedido</h1>
+
+<h4>¿Está seguro de que desea eliminar este pedido?</h4>
+<hr />
+
+<div>
+    <strong>@Model.OrderDetails</strong>
+</div>
+
+<form asp-action="DeleteConfirmed">
+    <div class="form-group">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="@Url.Action("Index", "Orders")" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
