@@ -384,8 +384,8 @@ D:\Proyectogg\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.csp
 D:\Proyectogg\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\compressed\ihjs7yzaaq-1betjktks1.gz
 X:\Proyecto-GGStore-gabriel-web-completa\bin\Debug\net9.0\appsettings.Development.json
 X:\Proyecto-GGStore-gabriel-web-completa\bin\Debug\net9.0\appsettings.json
-X:\Proyecto-GGStore-gabriel-web-completa\bin\Debug\net9.0\GGStore.staticwebassets.endpoints.json
 X:\Proyecto-GGStore-gabriel-web-completa\bin\Debug\net9.0\GGStore.staticwebassets.runtime.json
+X:\Proyecto-GGStore-gabriel-web-completa\bin\Debug\net9.0\GGStore.staticwebassets.endpoints.json
 X:\Proyecto-GGStore-gabriel-web-completa\bin\Debug\net9.0\GGStore.exe
 X:\Proyecto-GGStore-gabriel-web-completa\bin\Debug\net9.0\GGStore.deps.json
 X:\Proyecto-GGStore-gabriel-web-completa\bin\Debug\net9.0\GGStore.runtimeconfig.json
@@ -488,6 +488,7 @@ X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.csproj.CoreCom
 X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.MvcApplicationPartsAssemblyInfo.cache
 X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.RazorAssemblyInfo.cache
 X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.RazorAssemblyInfo.cs
+X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.sourcelink.json
 X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\scopedcss\bundle\GGStore.styles.css
 X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\scopedcss\projectbundle\GGStore.bundle.scp.css

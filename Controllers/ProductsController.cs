@@ -9,36 +9,48 @@ namespace ProyectoGGStore.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+        // Constructor para inyectar el contexto de la base de datos
         public ProductsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Products/Index
-        public async Task<IActionResult> Index()
-        {
-            // Obtiene todos los productos de la base de datos
-            var products = await _context.Products.ToListAsync();
-            return View(products); // Devuelve la vista con la lista de productos
-        }
+        // Acción GET: Products/Index
+public async Task<IActionResult> Index()
+{
+    var products = new List<Product>
+    {
+        new Product(1, "Teclado RGB", "Teclado mecánico RGB con retroiluminación", 59.99m, "1.jpg"),
+        new Product(2, "PlayStation 5", "Consola PlayStation 5 de 2TB", 499.99m, "2.jpg"),
+        new Product(3, "God of War Ragnarök", "Videojuego God of War Ragnarök", 59.99m, "3.jpg"),
+        new Product(4, "Mouse Gaming", "Mouse con sensor de alta precisión", 39.99m, "4.jpg"),
+        new Product(5, "Monitor 144Hz", "Monitor con alta frecuencia de actualización", 199.99m, "5.jpg"),
+        new Product(6, "Producto de Imagen 6", "Descripción del producto", 99.99m, "6.jpg")
+    };
 
-        // GET: Products/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null) // Validar si el id es nulo
-            {
-                return NotFound();
-            }
+    return View(products);
+}
 
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null) // Validar si el producto existe
-            {
-                return NotFound();
-            }
 
-            return View(product);
-        }
+// Acción GET: Products/Details/5
+public async Task<IActionResult> Details(int? id)
+{
+    if (id == null) // Validar si el id es nulo
+    {
+        return NotFound(); // Si el id es nulo, devuelve una página de error
+    }
+
+    // Busca el producto por id
+    var product = await _context.Products
+        .FirstOrDefaultAsync(m => m.Id == id);
+    if (product == null) // Si el producto no existe, devuelve una página de error
+    {
+        return NotFound();
+    }
+
+    return View(product); // Pasa el producto a la vista para mostrarlo
+}
+
 
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -47,7 +59,7 @@ namespace ProyectoGGStore.Controllers
         {
             var product = await _context.Products.FindAsync(id);
 
-            if (product == null) // Validar si el producto existe
+            if (product == null)
             {
                 return NotFound();
             }

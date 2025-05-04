@@ -17,16 +17,20 @@ namespace ProyectoGGStore.Models
         [Range(0, double.MaxValue, ErrorMessage = "El precio debe ser mayor que cero.")]
         public decimal Price { get; set; }
 
-        public Product() { }
-
+        // Esta es la propiedad que almacena la ruta de la imagen
         public string ImageUrl { get; set; }
 
-        public Product(int id, string name, string description, decimal price)
+        // Constructor sin parámetros
+        public Product() { }
+
+        // Constructor con 5 parámetros (incluyendo ImageUrl)
+        public Product(int id, string name, string description, decimal price, string imageUrl)
         {
             Id = id;
             Name = name;
-            Description = description;  // Asigna el valor a Description
+            Description = description;
             Price = price;
+            ImageUrl = imageUrl;  // Asigna la ruta de la imagen
         }
     }
 }

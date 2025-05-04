@@ -12,8 +12,8 @@
         {
             <div class="col-md-4">
                 <div class="card">
-                    <!-- Ruta corregida para la imagen -->
-                    <img src="@Url.Content("~/images/" + producto.ImageUrl)" class="card-img-top" alt="@producto.Name">
+                    <!-- Asegúrate de generar la ruta de la imagen correctamente -->
+                    <img src="/images/@producto.ImageUrl" class="card-img-top" alt="@producto.Name">
                     <div class="card-body">
                         <h5 class="card-title">@producto.Name</h5>
                         <p class="card-text">@producto.Description</p>

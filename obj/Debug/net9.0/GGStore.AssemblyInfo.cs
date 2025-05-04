@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GGStore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56d7479c39bfcf116a85cf9acbd03bc601b85617")]
 [assembly: System.Reflection.AssemblyProductAttribute("GGStore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GGStore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

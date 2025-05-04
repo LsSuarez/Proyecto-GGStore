@@ -19,6 +19,9 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+// Configuración para servir archivos estáticos (como imágenes, CSS, JS)
+app.UseStaticFiles();  // Esto es necesario para que puedas acceder a archivos en wwwroot
+
 // Crear los roles de "Admin" y "User" si no existen
 using (var scope = app.Services.CreateScope())
 {

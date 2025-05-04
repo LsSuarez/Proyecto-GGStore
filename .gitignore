@@ -1,1 +1,15 @@
-.qodo
+# .NET Core
+bin/
+obj/
+.vs/
+.vscode/
+
+# User secrets (for development)
+appsettings.Development.json
+
+# Local database files (if not using local databases anymore)
+*.mdf
+*.ldf
+
+# ASP.NET Core Identity Files
+Identity/
