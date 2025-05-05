@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ProyectoGGStore.Data;
-using ProyectoGGStore.Models;
+using GGStore.Data;
+using GGStore.Models;
 using System.Threading.Tasks;
 
 namespace ProyectoGGStore.Controllers

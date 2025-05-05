@@ -10,6 +10,6 @@ namespace GGStore.Models
         public DateTime OrderDate { get; set; }
 
         // Relación de uno a muchos con Product
-        public ICollection<Product> Products { get; set; }
+        public ICollection<Product> Products { get; set; } = new List<Product>();  // Inicializamos con una lista vacía
     }
 }

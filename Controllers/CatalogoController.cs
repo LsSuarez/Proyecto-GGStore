@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using ProyectoGGStore.Models;
-using ProyectoGGStore.Data;
+using GGStore.Models;
+using GGStore.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace ProyectoGGStore.Controllers
