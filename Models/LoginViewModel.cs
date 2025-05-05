@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-using System.ComponentModel.DataAnnotations;
-
-namespace ProyectoGGStore.Models
-{
-    public class LoginViewModel
-    {
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
-
-        [Required]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
-
-        public bool RememberMe { get; set; }
-=======
 using System.ComponentModel.DataAnnotations;  // Asegúrate de tener esta referencia
 
 namespace GGStore.ViewModels
@@ -32,6 +15,5 @@ namespace GGStore.ViewModels
 
         // Propiedad para la opción de "Recordarme"
         public bool RememberMe { get; set; }  // Propiedad que controla la opción de "Recordarme"
->>>>>>> WebCompleta
     }
 }
