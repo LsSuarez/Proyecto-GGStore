@@ -1,9 +1,0 @@
-X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.csproj.AssemblyReference.cache
-X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.GeneratedMSBuildEditorConfig.editorconfig
-X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.AssemblyInfoInputs.cache
-X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.AssemblyInfo.cs
-X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.csproj.CoreCompileInputs.cache
-X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.MvcApplicationPartsAssemblyInfo.cache
-X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.RazorAssemblyInfo.cache
-X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.RazorAssemblyInfo.cs
-X:\Proyecto-GGStore-gabriel-web-completa\obj\Debug\net9.0\GGStore.sourcelink.json
