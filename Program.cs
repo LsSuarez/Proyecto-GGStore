@@ -1,15 +1,16 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ProyectoGGStore.Data;
-using ProyectoGGStore.Models;
+using GGStore.Data;
+using GGStore.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configurar los servicios de la base de datos
+// Configurar la conexión a la base de datos
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(connectionString));
 
-// Agregar Identity para la gestión de usuarios
+// Configurar Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
@@ -19,56 +20,79 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configuración para servir archivos estáticos (como imágenes, CSS, JS)
-app.UseStaticFiles();  // Esto es necesario para que puedas acceder a archivos en wwwroot
-
-// Crear los roles de "Admin" y "User" si no existen
+// Crear roles y usuarios si no existen (esto se hará una vez cuando se inicie la aplicación)
 using (var scope = app.Services.CreateScope())
 {
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-    string[] roleNames = { "Admin", "User" }; // Define los roles
-    foreach (var roleName in roleNames)
+    // Crear rol Admin si no existe
+    if (!await roleManager.RoleExistsAsync("Admin"))
     {
-        var roleExist = await roleManager.RoleExistsAsync(roleName);
-        if (!roleExist)
-        {
-            var role = new IdentityRole(roleName);
-            await roleManager.CreateAsync(role);
-        }
+        var role = new IdentityRole("Admin");
+        await roleManager.CreateAsync(role);
     }
 
-    // Crear un administrador predeterminado (solo para pruebas o producción inicial)
+    // Crear rol User si no existe
+    if (!await roleManager.RoleExistsAsync("User"))
+    {
+        var role = new IdentityRole("User");
+        await roleManager.CreateAsync(role);
+    }
+
+    // Crear un usuario Admin por defecto (si no existe) y asignarle el rol "Admin"
     var adminUser = await userManager.FindByEmailAsync("admin@example.com");
     if (adminUser == null)
     {
         adminUser = new ApplicationUser
         {
-            UserName = "admin@example.com",
+            UserName = "admin",
             Email = "admin@example.com",
-            FullName = "Administrador"  // Asignamos el FullName aquí correctamente
+            FullName = "Administrator" // Establecer un valor para FullName
         };
-
-        var result = await userManager.CreateAsync(adminUser, "Password123!"); // Cambia la contraseña por algo seguro
+        var result = await userManager.CreateAsync(adminUser, "Password123!"); // Cambiar la contraseña por una segura
         if (result.Succeeded)
         {
             await userManager.AddToRoleAsync(adminUser, "Admin");
         }
     }
+
+    // Crear un usuario User por defecto (si no existe) y asignarle el rol "User"
+    var regularUser = await userManager.FindByEmailAsync("user@example.com");
+    if (regularUser == null)
+    {
+        regularUser = new ApplicationUser
+        {
+            UserName = "user",
+            Email = "user@example.com",
+            FullName = "Regular User" // Establecer un valor para FullName
+        };
+        var result = await userManager.CreateAsync(regularUser, "Password123!"); // Cambiar la contraseña por una segura
+        if (result.Succeeded)
+        {
+            await userManager.AddToRoleAsync(regularUser, "User");
+        }
+    }
 }
 
-// Configuración de enrutamiento para las vistas
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
 app.UseRouting();
 
-// Configuración de middleware para usar autenticación y autorización
-app.UseAuthentication();
-app.UseAuthorization();
+app.UseAuthentication();  // Agregar autenticación
+app.UseAuthorization();   // Agregar autorización para los roles
 
-// Definir ruta predeterminada para las vistas
+// Definir las rutas
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-// Ejecutar la aplicación
+// Iniciar la aplicación
 app.Run();

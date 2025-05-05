@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* site.css */
 
 /* Estilo global para el fondo */
@@ -120,4 +121,44 @@ footer {
   text-align: center;
   font-size: 2rem;
   margin-top: 20px;
+=======
+.custom-navbar {
+  background-color: #111;
+  border-bottom: 2px solid #00ffc3;
+  box-shadow: 0 0 10px #00ffc3;
+}
+
+.navbar-brand {
+  color: #00ffc3 !important;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.nav-link {
+  color: #00ffc3 !important;
+  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: #ff007a !important;
+  text-shadow: 0 0 5px #ff007a;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  padding-top: 20px;
+}
+
+h2 {
+  color: #00ffc3;
+  margin-top: 20px;
+  text-shadow: 0 0 5px #00ffc3;
+}
+
+.text-neon {
+  color: #00ffc3;
+  text-shadow: 0 0 5px #00ffc3;
+>>>>>>> WebCompleta
 }

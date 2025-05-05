@@ -1,102 +1,94 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using ProyectoGGStore.Models;
+using GGStore.Models;
 using System.Threading.Tasks;
 
-namespace ProyectoGGStore.Controllers
+public class AccountController : Controller
 {
-    public class AccountController : Controller
+    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly SignInManager<ApplicationUser> _signInManager;
+
+    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        _userManager = userManager;
+        _signInManager = signInManager;
+    }
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+    // Vista de Login
+    public IActionResult Login()
+    {
+        return View();
+    }
+
+    // Acción POST para iniciar sesión
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Login(LoginViewModel model)
+    {
+        if (ModelState.IsValid)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-        }
+            // Buscar al usuario por nombre de usuario
+            var user = await _userManager.FindByNameAsync(model.UserName);
 
-        // Acción para mostrar el formulario de login
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        // Acción para procesar el login
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model)
-        {
-            // Verificamos que los campos no estén vacíos manualmente
-            if (string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Password))
-            {
-                ViewData["ErrorMessage"] = "Todos los campos son obligatorios.";
-                return View(model);  // Devolvemos la vista con el error
-            }
-
-            // Verifica las credenciales del usuario
-            var user = await _userManager.FindByEmailAsync(model.Email);
             if (user != null)
             {
-                var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
+                // Intentar iniciar sesión con el usuario
+                var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, false); // No usar RememberMe
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home"); // Redirige al Home después de iniciar sesión correctamente
+                    // Redirigir a la página principal (Home) después de un login exitoso
+                    return RedirectToAction("Index", "Home"); // Redirigir al controlador Home
                 }
                 else
                 {
-                    ViewData["ErrorMessage"] = "Contraseña incorrecta.";
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                 }
             }
             else
             {
-                ViewData["ErrorMessage"] = "El usuario no existe.";
+                ModelState.AddModelError(string.Empty, "User not found.");
             }
-
-            // Si el login falla o la validación no es correcta, redirige de nuevo con los errores
-            return View(model);
         }
 
-        // Acción para cerrar sesión
-        public async Task<IActionResult> Logout()
-        {
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
-        }
+        // Si el modelo no es válido o el inicio de sesión falla
+        return View(model);
+    }
 
-        // Acción para mostrar el formulario de registro
-        public IActionResult Register()
-        {
-            return View();
-        }
+    // Vista de Registro
+    public IActionResult Register()
+    {
+        return View();
+    }
 
-        // Acción para procesar el registro
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+    // Acción POST para registrar un nuevo usuario
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Register(RegisterViewModel model)
+    {
+        if (ModelState.IsValid)
         {
-            if (ModelState.IsValid)
+            var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
+            var result = await _userManager.CreateAsync(user, model.Password);
+
+            if (result.Succeeded)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await _userManager.CreateAsync(user, model.Password);
+                // Asignar rol por defecto
+                await _userManager.AddToRoleAsync(user, "User");
 
-                if (result.Succeeded)
-                {
-                    // Aquí puedes hacer login automático si lo deseas
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
-                }
+                // Iniciar sesión después del registro
+                await _signInManager.SignInAsync(user, isPersistent: false);
 
-                // Si hubo un error al registrar al usuario, agregar los errores al ModelState
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+                return RedirectToAction("Index", "Home");  // Redirigir a la página de inicio
             }
 
-            // Si el registro falla, devolver la vista con los errores
-            return View(model);
+            // Si la creación del usuario falla, agregar los errores al modelo
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
         }
+
+        return View(model);
     }
 }

@@ -1,12 +1,17 @@
 using System.ComponentModel.DataAnnotations;
 
+<<<<<<< HEAD
 namespace ProyectoGGStore.Models
+=======
+namespace GGStore.Models
+>>>>>>> WebCompleta
 {
     public class Product
     {
         public int Id { get; set; }
 
         [Required]
+<<<<<<< HEAD
         [StringLength(100)]
         public string Name { get; set; }
 
@@ -32,5 +37,14 @@ namespace ProyectoGGStore.Models
             Price = price;
             ImageUrl = imageUrl;  // Asigna la ruta de la imagen
         }
+=======
+        public string Name { get; set; }
+
+        [Required]
+        public string Description { get; set; }
+
+        [Required]
+        public decimal Price { get; set; }
+>>>>>>> WebCompleta
     }
 }

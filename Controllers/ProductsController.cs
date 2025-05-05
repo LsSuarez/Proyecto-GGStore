@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+<<<<<<< HEAD
 using Microsoft.EntityFrameworkCore;
 using ProyectoGGStore.Data;
 using ProyectoGGStore.Models;
@@ -72,6 +73,22 @@ public async Task<IActionResult> Details(int? id)
         private bool ProductExists(int id)
         {
             return _context.Products.Any(e => e.Id == id); // Verifica si el producto existe
+=======
+
+namespace GGStore.Controllers
+{
+    public class ProductsController : Controller
+    {
+        public IActionResult Index() // Catálogo de Productos
+        {
+            return View();
+        }
+
+        public IActionResult Details(int id) // Ver detalles del producto
+        {
+            ViewBag.ProductId = id;
+            return View();
+>>>>>>> WebCompleta
         }
     }
 }

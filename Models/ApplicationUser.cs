@@ -1,19 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace ProyectoGGStore.Models
+namespace GGStore.Models
 {
     public class ApplicationUser : IdentityUser
-    {
-        // Propiedad adicional
-        public string FullName { get; set; }
+{
+    public string? FullName { get; set; } = "Default Full Name"; // Agregar ? para permitir nulos
+}
 
-        // Constructor por defecto
-        public ApplicationUser() : base() { }
-
-        // Constructor con parámetros
-        public ApplicationUser(string fullName)
-        {
-            FullName = fullName;
-        }
-    }
 }

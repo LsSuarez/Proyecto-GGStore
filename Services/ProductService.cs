@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 using ProyectoGGStore.Models;
+=======
+using GGStore.Models;
+using System.Collections.Generic;
+>>>>>>> WebCompleta
 
 namespace GGStore.Services
 {
