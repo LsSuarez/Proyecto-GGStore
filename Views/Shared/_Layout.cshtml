@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GG Store</title>
+
+    <!-- Fuente moderna: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body style="font-family: 'Inter', sans-serif;"> <!-- Aplicando la fuente Inter globalmente -->
+    <!-- Primer Navbar: Carrito, Login, Registro -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #680000;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <!-- Logo del Navbar -->
+                <img src="~/images/11.png" alt="GG Store" style="width: 180px; height: auto;" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto" id="user-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Cart" asp-action="Index">
+                            <img src="~/images/carrito.png" alt="Carrito" class="navbar-icon" />
+                            Carrito
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Account" asp-action="Login">
+                            <img src="~/images/user.png" alt="Login" class="navbar-icon" />
+                            Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Account" asp-action="Register">
+                            <img src="~/images/agregar.png" alt="Registro" class="navbar-icon" />
+                            Registro
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Segundo Navbar: Catálogo, Crear Orden, Órdenes, Checkout, Contacto -->
+    <nav class="navbar2 navbar-expand-lg navbar-dark" style="background-color: #000000; padding-top: 0.5rem; padding-bottom: 0.5rem;">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSecondaryNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSecondaryNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-4"><a class="nav-link" asp-controller="Products" asp-action="Index">Catálogo</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" asp-controller="Orders" asp-action="Create">Crear Orden</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" asp-controller="Orders" asp-action="Index">Órdenes</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" asp-controller="Cart" asp-action="Checkout">Checkout</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" asp-controller="Contact" asp-action="Index">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mostrar solo en Home -->
+    @if (ViewData["Title"]?.ToString() == "Inicio - GG Store") {
+        <div class="container mt-4">
+            <img src="~/images/2.png" class="d-block w-100" alt="Banner de Ofertas">
+        </div>
+    }
+
+    <!-- CONTENIDO DE VISTAS -->
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5" style="background-color: #000000; color: white; padding: 40px 0;">
+        <div class="container">
+            <!-- Logo en el Footer -->
+            <div class="footer-logo mb-4">
+                <img src="~/images/11.png" alt="GG Store" style="width: 180px; height: auto;">
+            </div>
+            
+            <!-- Links -->
+            <div class="footer-links mb-4">
+                <a href="#" class="text-white mx-3">Política de Privacidad</a>
+                <a href="#" class="text-white mx-3">Términos y Condiciones</a>
+                <a href="#" class="text-white mx-3">FAQ</a>
+                <a href="#" class="text-white mx-3">Soporte</a>
+            </div>
+            
+            <!-- Social Media -->
+            <div class="social-icons mb-4">
+                <a href="#" class="text-white mx-3"><i class="bi bi-facebook" style="font-size: 1.5rem;"></i></a>
+                <a href="#" class="text-white mx-3"><i class="bi bi-twitter" style="font-size: 1.5rem;"></i></a>
+                <a href="#" class="text-white mx-3"><i class="bi bi-instagram" style="font-size: 1.5rem;"></i></a>
+            </div>
+            
+            <!-- Copyright -->
+            <p>&copy; 2025 - GG Store - Powered by ASP.NET Core</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+
+    <!-- Script: Mostrar usuario logueado -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const user = localStorage.getItem("gg_logged");
+            if (user) {
+                const nav = document.getElementById("user-nav");
+
+                // Ocultar Login/Registro
+                nav.querySelectorAll('a[asp-action="Login"], a[asp-action="Register"]').forEach(link => {
+                    link.parentElement.remove();
+                });
+
+                // Agregar saludo y Logout
+                nav.innerHTML += ` 
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Hola, ${user}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="logout()">Logout</a>
+                    </li>
+                `;
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem("gg_logged");
+            window.location.reload();
+        }
+    </script>
+
+    <!-- Estilos adicionales para los botones del navbar -->
+    <style>
+        /* Estilos del Primer Navbar (Carrito, Login, Registro) */
+        .navbar .navbar-nav .nav-link {
+            border: 2px solid black; /* Contorno negro */
+            border-radius: 15px; /* Bordes redondeados */
+            padding: 10px 15px; /* Ajuste de espaciado para los botones */
+            background-color: black; /* Fondo negro */
+            color: #ffffff; /* Texto blanco */
+            transition: all 0.3s ease; /* Transición suave */
+            margin: 0 10px; /* Separación promedio entre los botones */
+            display: flex;
+            align-items: center;
+        }
+
+        /* Estilo de las imágenes dentro de los botones */
+        .navbar .navbar-nav .nav-link img {
+            margin-right: 8px; /* Espacio entre la imagen y el texto */
+            width: 20px; /* Tamaño de las imágenes */
+            height: auto;
+        }
+
+        /* Hover para los botones */
+        .navbar .navbar-nav .nav-link:hover {
+            background-color:rgb(43, 41, 42); /* Cambio de fondo cuando se pasa el cursor */
+            color: white; /* Cambia el color del texto al pasar el cursor */
+        }
+
+        /* Estilos del Segundo Navbar (Catálogo, Crear Orden, Órdenes, Checkout, Contacto) */
+        .navbar2 .navbar-nav .nav-link {
+            margin-left: 60px; /* Separación mayor entre los elementos */
+            margin-right: 60px; /* Separación mayor entre los elementos */
+        }
+
+        /* Ajuste de tamaño de los iconos en los botones de la barra de navegación superior */
+        .navbar .navbar-nav .nav-link img {
+            width: 18px;  /* Tamaño reducido de los iconos */
+            height: auto;
+        }
+    </style>
+</body>
+</html>
