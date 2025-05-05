@@ -20,7 +20,10 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Crear roles y usuarios si no existen (esto se hará una vez cuando se inicie la aplicación)
+// Configuración para servir archivos estáticos (como imágenes, CSS, JS)
+app.UseStaticFiles();  // Esto es necesario para que puedas acceder a archivos en wwwroot
+
+// Crear los roles de "Admin" y "User" si no existen
 using (var scope = app.Services.CreateScope())
 {
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();

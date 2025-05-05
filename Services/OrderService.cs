@@ -1,5 +1,6 @@
 using GGStore.Models;
 using System.Collections.Generic;
+using GGStore.Models;
 
 namespace GGStore.Services
 {

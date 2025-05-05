@@ -1,1 +1,30 @@
+<<<<<<< HEAD
 
+=======
+@model IEnumerable<ProyectoGGStore.Models.Product>
+
+@{
+    ViewData["Title"] = "Catálogo";
+}
+
+<div class="container">
+    <h1>Bienvenido al Catálogo</h1>
+    
+    <div class="row">
+        @foreach (var producto in Model)
+        {
+            <div class="col-md-4">
+                <div class="card">
+                    <!-- Asegúrate de generar la ruta de la imagen correctamente -->
+                    <img src="/images/@producto.ImageUrl" class="card-img-top" alt="@producto.Name">
+                    <div class="card-body">
+                        <h5 class="card-title">@producto.Name</h5>
+                        <p class="card-text">@producto.Description</p>
+                        <button class="btn">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+>>>>>>> origin/gabriel-version

@@ -1,23 +1,43 @@
 using Microsoft.AspNetCore.Mvc;
+using GGStore.Models;
+using GGStore.Data;
 
-namespace GGStore.Controllers
+namespace ProyectoGGStore.Controllers
 {
     public class OrdersController : Controller
     {
-        public IActionResult Index() // Ver órdenes
+        private readonly ApplicationDbContext _context;
+
+        public OrdersController(ApplicationDbContext context)
         {
-            return View();
+            _context = context;
         }
 
-        public IActionResult Create() // Crear orden
+        // Acción Index para mostrar todas las órdenes
+        public IActionResult Index()
         {
-            return View();
+            var orders = _context.Orders.ToList();
+            return View(orders); // Asegúrate de que exista la vista Index.cshtml
         }
 
-        public IActionResult Details(int id) // Atender orden
+        // Acción Create para crear una nueva orden
+        public IActionResult Create()
         {
-            ViewBag.OrderId = id;
-            return View();
+            return View(); // Asegúrate de que exista la vista Create.cshtml
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Order order)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Orders.Add(order);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index)); // Redirige al Index después de crear la orden
+            }
+
+            return View(order);
         }
     }
 }
