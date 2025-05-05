@@ -16,7 +16,7 @@ namespace ProyectoGGStore.Controllers
         }
 
         // Acción GET: Products/Index
-public async Task<IActionResult> Index()
+public IActionResult Index()
 {
     var products = new List<Product>
     {

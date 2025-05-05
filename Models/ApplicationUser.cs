@@ -5,7 +5,8 @@ namespace GGStore.Models
     public class ApplicationUser : IdentityUser
     {
         // Propiedad adicional
-        public string FullName { get; set; }
+        
+        public string FullName { get; set; } = string.Empty;
 
         // Constructor por defecto
         public ApplicationUser() : base() { }
