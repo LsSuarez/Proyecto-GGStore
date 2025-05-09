@@ -4957,11 +4957,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "X:\\Proyecto-GGStore-gabriel-web-completa\\GGStore.csproj",
+      "projectUniqueName": "X:\\PRO\\GGSTORE- COMPLETO\\GGStore.csproj",
       "projectName": "GGStore",
-      "projectPath": "X:\\Proyecto-GGStore-gabriel-web-completa\\GGStore.csproj",
+      "projectPath": "X:\\PRO\\GGSTORE- COMPLETO\\GGStore.csproj",
       "packagesPath": "C:\\Users\\Ryzen 5600G\\.nuget\\packages\\",
-      "outputPath": "X:\\Proyecto-GGStore-gabriel-web-completa\\obj\\",
+      "outputPath": "X:\\PRO\\GGSTORE- COMPLETO\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ryzen 5600G\\AppData\\Roaming\\NuGet\\NuGet.Config"
