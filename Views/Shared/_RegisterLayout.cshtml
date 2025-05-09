@@ -1,0 +1,116 @@
+@{
+    Layout = null;  // Desactiva el layout principal para esta página
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GG Store</title>
+
+    <!-- Fuente moderna: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        /* Estilo personalizado para la página de registro */
+        body {
+            background-image: url('/images/fondo-register.png'); /* Ruta de la imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Contenedor del formulario */
+        .container {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            max-width: 500px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            border-radius: 25px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background-color: #9b1b30;
+            color: white;
+            border-radius: 25px;
+            padding: 10px 20px;
+            width: 100%;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .btn:hover {
+            background-color: #cc4d62;
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: #9b1b30;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .welcome-message {
+            position: absolute;
+            top: 65%;
+            left: 20px;
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .welcome-message2 {
+            position: absolute;
+            top: 70%;
+            left: 20px;
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Logo -->
+    <a href="/"> <!-- Enlace para redirigir al home -->
+        <img src="~/images/11.png" alt="GG Store" class="logo" />
+    </a>
+
+    <!-- Mensaje de bienvenida -->
+    <p class="welcome-message">BIENVENIDO, POR FAVOR REGÍSTRATE</p>
+
+    <!-- Contenedor del formulario -->
+    <div class="container">
+        @RenderBody()  <!-- Aquí se cargará el contenido de la vista de registro -->
+    </div>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

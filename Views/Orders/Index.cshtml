@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "Tus Órdenes";
+}
+
+<h2 class="mb-4 text-info">Órdenes Realizadas</h2>
+
+<div id="orders-list" class="text-light"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const user = localStorage.getItem("gg_logged");
+        const orders = JSON.parse(localStorage.getItem("orders") || "[]");
+        const container = document.getElementById("orders-list");
+
+        if (!user) {
+            container.innerHTML = "<p>🔒 Iniciá sesión para ver tus órdenes.</p>";
+            return;
+        }
+
+        const userOrders = orders.filter(order => order.user === user);
+
+        if (userOrders.length === 0) {
+            container.innerHTML = "<p>No tenés órdenes todavía. ¡Hacete una compra gamer! 🎮</p>";
+            return;
+        }
+
+        userOrders.forEach(order => {
+            let productosHtml = "<ul>";
+            order.items.forEach(item => {
+                productosHtml += `<li>${item.name} x${item.quantity}</li>`;
+            });
+            productosHtml += "</ul>";
+
+            container.innerHTML += `
+                <div class="mb-4 p-3 border border-success rounded shadow-sm bg-dark">
+                    <h5 class="text-neon mb-2">🧾 Orden #${order.id}</h5>
+                    <p><strong>Fecha:</strong> ${order.date}</p>
+                    <p><strong>Total:</strong> $${order.total.toFixed(2)}</p>
+                    <p><strong>Pago con:</strong> ${order.metodoPago}</p>
+                    <strong>Productos:</strong>
+                    ${productosHtml}
+                </div>
+            `;
+        });
+    });
+</script>

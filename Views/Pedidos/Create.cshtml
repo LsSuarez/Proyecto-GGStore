@@ -1,0 +1,29 @@
+@model GGStore.Models.Order
+
+@{
+    ViewData["Title"] = "Crear Pedido";
+}
+
+<h1>Crear Pedido</h1>
+
+<h4>Pedido</h4>
+<hr />
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="OrderDetails" class="control-label"></label>
+        <input asp-for="OrderDetails" class="form-control" />
+        <span asp-validation-for="OrderDetails" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="OrderDate" class="control-label"></label>
+        <input asp-for="OrderDate" class="form-control" />
+        <span asp-validation-for="OrderDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Crear</button>
+        <a href="@Url.Action("Index", "Orders")" class="btn btn-secondary">Volver a la lista</a>
+    </div>
+</form>

@@ -1,0 +1,12 @@
+@{
+    ViewData["Title"] = "Panel de Administración";
+}
+
+<h1>Bienvenido al Panel de Administración</h1>
+
+<!-- Solo los administradores pueden ver el enlace a gestionar productos -->
+@if (User.IsInRole("Admin"))
+{
+    <a href="@Url.Action("ManageProducts", "Admin")" class="btn btn-success">Gestionar Productos</a>
+    <a href="@Url.Action("ManageUsers", "Admin")" class="btn btn-warning">Gestionar Usuarios</a>
+}

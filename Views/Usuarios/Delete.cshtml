@@ -1,0 +1,22 @@
+@model GGStore.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Eliminar Usuario";
+}
+
+<h1>Eliminar Usuario</h1>
+
+<h4>¿Está seguro de que desea eliminar este usuario?</h4>
+<hr />
+
+<div>
+    <strong>@Model.FullName</strong>
+</div>
+
+<form asp-action="DeleteConfirmed">
+    <div class="form-group">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="@Url.Action("Index", "Users")" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
